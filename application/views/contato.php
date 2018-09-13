@@ -2,13 +2,6 @@
     <div class="row">
         <div class="col-lg-3 col-xs-1 col-sm-1"></div>
         <div class="col-lg-6 col-xs-10 col-sm-10">
-            <?php
-            // put your code here
-            
-            echo "<br>";
-//        echo $completo;
-            echo "<p>";
-            ?>
             <h2> Contato </h2>
             <br>
             <br>
@@ -27,7 +20,7 @@
 
             <p></p>
             <div>
-                <table class="table">
+                <table id="contatos" class="table table-striped table-bordered" style="width:100%">
                     <p>Contatos</p>
                     <thead>
                         <tr>
@@ -66,4 +59,21 @@
         <div class="col-lg-3 col-xs-1 col-sm-1"></div>
     </div>
     
+    
 </div>
+<script type="text/javascript">
+$(document).ready(function () {
+        $('#contatos').DataTable({
+            language: {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
+            },
+            iDisplayLength:10,
+            dom:'Bfrtip',
+            buttons:[
+                'copy',
+                'excel',
+                'pdf',
+                'print'
+            ]
+        });
+    });</script>
