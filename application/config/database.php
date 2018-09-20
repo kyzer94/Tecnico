@@ -6,9 +6,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql380.umbler.com:41890',
-	'username' => 'kyzer',
-	'password' => 'vitorlacerda1994',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
 	'database' => 'meuframe',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

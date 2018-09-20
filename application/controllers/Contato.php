@@ -7,35 +7,39 @@ class Contato extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('Contatos_model', 'contatos');
-        //contatos é um alias para o Contatos_model 
+        $this->load->model('Funcao_model', 'funcao');
+        //contatos Ã© um alias para o Contatos_model 
     }
 
     public function index() {
         $this->load->view('template/header');
-        $dados['acronico'] = "MPF";
-        $dados['completo'] = "Meu Projeto Framework";
+        $dados['acronico'] = "PF";
+        $dados['completo'] = "Projeto Frame";
         $dados['contatos'] = $this->contatos->listar();
+        $dados['funcao'] = $this->funcao->listar();
         $this->load->view('contato', $dados);
-       $this->load->view('template/footer');
-    }
-
-    public function excluir($id) {
-        $this->contatos->excluir($id);
-        redirect('contato');
+        $this->load->view('template/footer');
     }
 
     public function inserir() {
         $dados['nome'] = $this->input->post('nome');
         $dados['email'] = $this->input->post('email');
+        $dados['idfuncao'] = $this->input->post('idfuncao');
         $this->contatos->inserir($dados);
         redirect('contato');
     }
 
+    public function excluir($id) {
+        $this->contatos->deletar($id);
+        redirect('contato');
+    }
+
     public function editar($id) {
-        $data['acronico'] = "MPF";
-        $data['completo'] = "Meu Projeto Framework";
-        $data['contatoEditar'] = $this->contatos->editar($id);
         $this->load->view('template/header');
+        $data['acronico'] = "MPF";
+        $data['completo'] = "Meu Projeto Frame";
+        $data['contatoEditar'] = $this->contatos->editar($id);
+        $data['funcao'] = $this->funcao->listar();
         $this->load->view('contatoEditar', $data);
         $this->load->view('template/footer');
     }
@@ -49,3 +53,12 @@ class Contato extends CI_Controller {
     }
 
 }
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+
