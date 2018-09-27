@@ -44,8 +44,10 @@ class Usuario extends CI_Controller {
 
     public function atualizar() {
         $data['idUsuario'] = $this->input->post('idUsuario');
-        $data['nomeUsuario'] = $this->input->post('nomeUsuario');
-        $data['nomeUsuario'] = $this->input->post('nomeUsuario');
+        $data['nomeUsuario'] = mb_convert_case($this->input->post('nomeUsuario'),MB_CASE_UPPER);
+        $data['user'] = mb_convert_case($this->input->post('user'),MB_CASE_LOWER);
+        $data['senha'] = md5($this->input->post('senha'));
+        $data['perfilAcesso'] = $this->input->post('perfilAcesso');
         $this->usuario->atualizar($data);
         redirect('usuario');
     }
