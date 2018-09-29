@@ -6,6 +6,11 @@ class Contato extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        if(!$this->session->userdata('estou_logado')){
+            redirect('login');
+        }elseif($this->session->userdata('logado')->perfilAcesso != "ADM"){
+            redirect('home');
+        }
         $this->load->model('Contatos_model', 'contatos');
         $this->load->model('Funcao_model', 'funcao');
         //contatos Ã© um alias para o Contatos_model 

@@ -8,7 +8,7 @@
         <label for="user">Login:</label>
         <input class="form-control" id="user" name="user" type="text" required/>
         <label for="senha">Senha:</label>
-        <input class="form-control" id="senha" name="senha" type="password" required/>
+        <input class="form-control" id="senha" name="senha" type="password" placeholder="Minimo 8 caracteres" minlength="8" required/>
         <label for="perfilAcesso">Tipo de Perfil:</label>
         <input class="form-control" id="perfilAcesso" name="perfilAcesso" type="text" required/>
     </div>

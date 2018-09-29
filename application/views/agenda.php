@@ -5,8 +5,8 @@
             <h2> Contato </h2>
             <br>
             <br>
-            <?php echo form_open('contato/inserir'); ?>
-            <!--            <div class="form-row">
+            <?php echo form_open('agenda/inserir'); ?>
+                        <div class="form-row">
                             <div class="form-group col-md-2">
                                 <h3>Nome:</h3>
                             </div>
@@ -64,7 +64,7 @@
                         </div>
             
             
-                        <p></p>-->
+                        <p></p>
             <label>Nome</label><br>
             <input class="form-control form-control-lg" name="nome" type="text" required/>
             <p></p>

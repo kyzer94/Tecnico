@@ -6,6 +6,12 @@ class Usuario extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        if(!$this->session->userdata('estou_logado')){
+            redirect('login');
+        }elseif($this->session->userdata('logado')->perfilAcesso != "ADM"){
+            redirect('home');
+        }
+        
         $this->load->model('Usuario_model', 'usuario');
         //contatos Ã© um alias para o Contatos_model 
     }
@@ -23,7 +29,7 @@ class Usuario extends CI_Controller {
         $dados['nomeUsuario'] = mb_convert_case($this->input->post('nomeUsuario'),MB_CASE_UPPER);
         $dados['user'] = mb_convert_case($this->input->post('user'),MB_CASE_LOWER);
         $dados['senha'] = md5($this->input->post('senha'));
-        $dados['perfilAcesso'] = $this->input->post('perfilAcesso');
+        $dados['perfilAcesso'] = mb_convert_case($this->input->post('perfilAcesso'),MB_CASE_UPPER);
         $this->usuario->inserir($dados);
         redirect('usuario');
     }
