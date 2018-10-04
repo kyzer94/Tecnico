@@ -30,8 +30,15 @@ class Contato extends CI_Controller {
         $dados['nome'] = $this->input->post('nome');
         $dados['email'] = $this->input->post('email');
         $dados['idfuncao'] = $this->input->post('idfuncao');
-        $this->contatos->inserir($dados);
-        redirect('contato');
+        $result = $this->contatos->inserir($dados);
+        if($result == true){
+            $this->session->set_flashdata('sucesso','msg');
+            redirect('contato');
+        }else{
+            $this->session->set_flashdata('error','msg');
+            redirect('contato');
+            
+        }
     }
 
     public function excluir($id) {

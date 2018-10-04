@@ -24,8 +24,15 @@ class Funcao extends CI_Controller {
 
     public function inserir() {
         $dados['nomefuncao'] = $this->input->post('nomefuncao');
-        $this->funcao->inserir($dados);
-        redirect('funcao');
+        $result = $this->funcao->inserir($dados);
+        if($result == true){
+            $this->session->set_flashdata('sucesso','msg');
+            redirect('funcao');
+        }else{
+            $this->session->set_flashdata('error','msg');
+            redirect('funcao');
+            
+        }
     }
 
     public function excluir($id) {

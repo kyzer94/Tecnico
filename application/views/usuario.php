@@ -10,7 +10,10 @@
         <label for="senha">Senha:</label>
         <input class="form-control" id="senha" name="senha" type="password" placeholder="Minimo 8 caracteres" minlength="8" required/>
         <label for="perfilAcesso">Tipo de Perfil:</label>
-        <input class="form-control" id="perfilAcesso" name="perfilAcesso" type="text" required/>
+        <select class="form-control" id="perfilAcesso" type="text" name="perfilAcesso" value="">
+            <option value="ADM">Admin</option>
+            <option value="Comum">Comum</option>
+        </select>
     </div>
     <input class="btn btn-dark" type="submit" value="Salvar"/>
     <input class="btn btn-dark" type="reset" value="Limpar"/>
@@ -23,6 +26,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Nome Usuarios</th>
+                        <th scope="col">Usuarios</th>
                         <th scope="col">Funções</th>
                     </tr>
                 </thead>
@@ -33,15 +37,16 @@
                         <?php foreach ($usuario as $row): ?>
                             <tr>
                                 <td><?php echo $row->nomeUsuario; ?></td>
+                                <td><?php echo $row->user; ?></td>
                                 <td>
                                     <a href="<?php
                                     echo base_url() .
-                                    'usuario/editar/' . $row->idUsuario;
+                                    'usuario/editar/' . $row->idUser;
                                     ?>">Editar</a>
                                     |
                                     <a href="<?php
                                     echo base_url() .
-                                    'usuario/excluir/' . $row->idUsuario;
+                                    'usuario/excluir/' . $row->idUser;
                                     ?>">Excluir</a>
                                 </td>
                             </tr>                  
@@ -51,3 +56,4 @@
             </table>
     </div>
 </div>
+

@@ -7,14 +7,6 @@ and open the template in the editor.
 
 <div class="container">
 
-    <?php
-    // put your code here
-    echo $acronico;
-    echo "<br>";
-//        echo $completo;
-    echo "<p>";
-    ?>
-    <h2>Contato</h2>
     <?php echo form_open('contato/inserir'); ?>
     <div class="form-group">
         <label for="nome">Nome:</label>
